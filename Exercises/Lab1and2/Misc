@@ -1,0 +1,45 @@
+using namespace std;
+#include<cmath>
+#include<iostream>
+
+double mag (double(x), double(y)){
+    float z = sqrt(x*x + y*y);
+    std::cout << z;
+}
+
+
+
+int main()
+
+{
+    double x, y;
+    std::cout <<"Enter x...";
+    std::cin >> x;
+    std:: cout <<"Enter y...";
+    std::cin >> y;
+
+    double Magnitude = mag(x,y);
+    std::cout << "Magnitude is...", Magnitude;
+// what i ran to get the code to compile both files when it wasn't finding the function via the header file.
+//g++ AnalyseData.cpp CustomFunctions.cpp -o AnalyseData./AnalyseData
+
+//this makes the output executable
+//g++ AnalyseData.cpp CustomFunctions.cpp -o analyse./analyse
+
+// # Default target: compile everything - using Makefile
+all: analyse
+
+# Compile your C++ files into executable named "analyse"
+# $^ means all dependencies
+analyse: AnalyseData.cpp CustomFunctions.cpp CustomFunctions.h
+	g++ AnalyseData.cpp CustomFunctions.cpp -o analyse
+
+# Run the program
+run: analyse
+	./analyse
+
+# Optional: clean up the compiled executable
+clean:
+	rm -f analyse
+
+//'make run' is now the command that executes the above
