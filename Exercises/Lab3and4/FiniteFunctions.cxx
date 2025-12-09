@@ -133,7 +133,7 @@ void FiniteFunction::printInfo(){
 
 //Hack because gnuplot-io can't read in custom functions, just scan over function and connect points with a line... 
 void FiniteFunction::plotFunction(){
-  m_function_scan = this->scanFunction(10000);
+  m_function_scan = this->scanFunction(100);
   m_plotfunction = true;
 }
 
@@ -148,6 +148,7 @@ void FiniteFunction::plotData(std::vector<double> &points, int Nbins, bool isdat
     m_samples = this->makeHist(points,Nbins);
     m_plotsamplepoints = true;
   }
+
 }
 
 
